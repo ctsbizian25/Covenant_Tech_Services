@@ -221,34 +221,140 @@
     color: var(--ink);
   }
 
-  .price-strip{
-    display:flex;
-    justify-content:center;
-    gap: 24px;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
-  }
-
-  .price-chip{
-    background: rgba(201,162,39,0.14);
-    border-left: 4px solid var(--gold);
-    padding: 14px 22px;
-    text-align:left;
-    min-width: 200px;
-  }
-
-  .price-chip .svc{
-    font-weight:bold;
-    color: var(--crimson-deep);
-    font-size: 14.5px;
-  }
-
-  .price-chip .rate{
+  .menu-label{
     font-family: Georgia, serif;
-    font-weight:bold;
+    font-size: 20px;
     color: var(--crimson);
-    font-size: 18px;
-    margin-top: 4px;
+    text-align: left;
+    margin-bottom: 6px;
+  }
+
+  .pricing-preview p.menu-sub{
+    text-align: left;
+    max-width: none;
+    margin: 0 0 22px;
+    font-size: 14px;
+    color: #6b5a4a;
+  }
+
+  .plans-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    text-align: left;
+  }
+
+  .plan-card{
+    border: 1px solid rgba(124,17,40,0.18);
+    border-radius: 6px;
+    overflow: hidden;
+    background: #F7F2E7;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .plan-card.featured{
+    background: rgba(201,162,39,0.16);
+    border-color: var(--gold);
+  }
+
+  .plan-header{
+    background: linear-gradient(135deg, var(--crimson) 0%, var(--crimson-deep) 100%);
+    color: var(--cream);
+    text-align: center;
+    padding: 20px 16px;
+  }
+
+  .plan-name{
+    font-family: Georgia, serif;
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 0.3px;
+    margin-bottom: 8px;
+  }
+
+  .plan-price{
+    font-family: Georgia, serif;
+    font-weight: bold;
+    font-size: 24px;
+    color: var(--gold-light);
+  }
+
+  .plan-price span{
+    font-size: 13px;
+    font-weight: normal;
+    color: #EAD9C9;
+  }
+
+  .plan-features{
+    list-style: none;
+    padding: 20px 18px;
+    flex: 1;
+  }
+
+  .plan-features li{
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--ink);
+    padding-left: 16px;
+    position: relative;
+    margin-bottom: 8px;
+  }
+
+  .plan-features li::before{
+    content: "•";
+    color: var(--crimson);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+  }
+
+  .plan-best{
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 12px;
+    color: #6b5a4a;
+    text-align: center;
+    padding: 12px 16px;
+    border-top: 1px solid rgba(124,17,40,0.12);
+  }
+
+  .ala-carte-list{
+    text-align: left;
+  }
+
+  .ala-item{
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(124,17,40,0.15);
+  }
+
+  .ala-item .row{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+  }
+
+  .ala-item .svc{
+    font-weight: bold;
+    color: var(--crimson-deep);
+    font-size: 15px;
+  }
+
+  .ala-item .rate{
+    font-family: Georgia, serif;
+    font-weight: bold;
+    color: var(--crimson);
+    font-size: 15.5px;
+    white-space: nowrap;
+  }
+
+  .ala-item .details{
+    font-size: 12.5px;
+    color: #6b5a4a;
+    margin-top: 2px;
+    width: 100%;
   }
 
   /* ---------- AVAILABILITY ---------- */
@@ -335,6 +441,7 @@
     .services{ padding: 40px 28px; }
     .service-grid{ grid-template-columns: 1fr; }
     .pricing-preview{ padding: 40px 28px; }
+    .plans-grid{ grid-template-columns: 1fr; }
     .availability{ grid-template-columns: 1fr; padding: 40px 28px; text-align:left; }
     .hero-copy{ padding: 40px 28px; }
     .hero-logo{ padding: 30px; }
@@ -405,26 +512,99 @@
     </div>
   </div>
 
-  <!-- PRICING PREVIEW -->
+  <!-- SERVICE MENU -->
   <div class="pricing-preview">
-    <h2>Simple, Upfront Pricing</h2>
+    <h2>Service Menu</h2>
     <div class="underline"></div>
-    <p>No surprise invoices — know what a service costs before you book.</p>
-    <div class="price-strip">
-      <div class="price-chip">
-        <div class="svc">General tech support</div>
-        <div class="rate">$75/hr</div>
+    <p>Straightforward, honest IT help for solo professionals &amp; small churches — no long contracts, no jargon.</p>
+
+    <h3 class="menu-label">Monthly Care Plans</h3>
+    <div class="plans-grid">
+      <div class="plan-card">
+        <div class="plan-header">
+          <div class="plan-name">Tech Essentials</div>
+          <div class="plan-price">$59<span>/month</span></div>
+        </div>
+        <ul class="plan-features">
+          <li>Monthly remote system health check</li>
+          <li>Priority email support (48-hr response)</li>
+          <li>1 remote quick-fix credit included</li>
+          <li>Password &amp; security check-up</li>
+        </ul>
+        <div class="plan-best">Best for: solo professionals, home offices</div>
       </div>
-      <div class="price-chip">
-        <div class="svc">On-site support</div>
-        <div class="rate">$85/hr</div>
+
+      <div class="plan-card">
+        <div class="plan-header">
+          <div class="plan-name">Business Ready</div>
+          <div class="plan-price">$129<span>/month</span></div>
+        </div>
+        <ul class="plan-features">
+          <li>Everything in Tech Essentials</li>
+          <li>2 remote support sessions included</li>
+          <li>Quarterly on-site visit (1 hr)</li>
+          <li>24-hr priority response</li>
+          <li>Basic security monitoring &amp; alerts</li>
+        </ul>
+        <div class="plan-best">Best for: small churches, family businesses</div>
       </div>
-      <div class="price-chip">
-        <div class="svc">Home & Solo Pro bundle</div>
-        <div class="rate">$175</div>
+
+      <div class="plan-card featured">
+        <div class="plan-header">
+          <div class="plan-name">Covenant Care</div>
+          <div class="plan-price">$249<span>/month</span></div>
+        </div>
+        <ul class="plan-features">
+          <li>Everything in Business Ready</li>
+          <li>Unlimited remote quick-fix support</li>
+          <li>Monthly on-site visit (1 hr included)</li>
+          <li>Same-day priority response</li>
+          <li>Quarterly security &amp; compliance review</li>
+          <li>Direct advisor line</li>
+        </ul>
+        <div class="plan-best">Best for: ministries needing hands-on care</div>
       </div>
     </div>
-    <a class="btn" href="mailto:ctsbizian25@gmail.com">Get a Free Quote</a>
+
+    <h3 class="menu-label" style="margin-top:40px;">À La Carte Services</h3>
+    <p class="menu-sub">Not ready for a monthly plan? Every service below is available on its own, no subscription required.</p>
+
+    <div class="ala-carte-list">
+      <div class="ala-item">
+        <div class="row"><span class="svc">Remote Quick-Fix</span><span class="rate">$45</span></div>
+        <div class="details">Capped at 30 min — email, M365, hardware/software issues</div>
+      </div>
+      <div class="ala-item">
+        <div class="row"><span class="svc">On-Site Visit</span><span class="rate">$85/hr</span></div>
+        <div class="details">1-hour minimum; covers travel</div>
+      </div>
+      <div class="ala-item">
+        <div class="row"><span class="svc">Advisory Consultation</span><span class="rate">$40/30 min</span></div>
+        <div class="details">First 15-min discovery call is free</div>
+      </div>
+      <div class="ala-item">
+        <div class="row"><span class="svc">Password Infrastructure Setup</span><span class="rate">$149–$299</span></div>
+        <div class="details">Up to 10 or 25 users, full rollout + training</div>
+      </div>
+      <div class="ala-item">
+        <div class="row"><span class="svc">Network Deployment</span><span class="rate">$99–$500+</span></div>
+        <div class="details">Router optimization up to full managed installs</div>
+      </div>
+      <div class="ala-item">
+        <div class="row"><span class="svc">Sanctuary Livestream &amp; Audio Build</span><span class="rate">$250–$600</span></div>
+        <div class="details">OBS/vMix, mixer calibration, streaming setup</div>
+      </div>
+      <div class="ala-item">
+        <div class="row"><span class="svc">Content Creator / Gamer Tune-Up</span><span class="rate">$125</span></div>
+        <div class="details">System audit, OBS bitrate tuning, latency fixes</div>
+      </div>
+      <div class="ala-item">
+        <div class="row"><span class="svc">Tech Procurement Guide</span><span class="rate">$75</span></div>
+        <div class="details">Budget/Best-Value/High-Performance comparison</div>
+      </div>
+    </div>
+
+    <a class="btn" style="margin-top:30px;" href="mailto:ctsbizian25@gmail.com">Get a Free Quote</a>
   </div>
 
   <!-- AVAILABILITY -->
